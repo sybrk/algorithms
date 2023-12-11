@@ -107,3 +107,47 @@ function tekrarlanan(dizi) {
     }
     return result;
 }
+
+// https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true
+function compareTriplest(a, b) {
+    let scoreA = 0, scoreB = 0;
+    a.forEach((element, i) => {
+        if (element > b[i]) {
+            scoreA++;
+        } else if (b[i] > element) {
+            scoreB++;
+        }
+    });
+    return [scoreA, scoreB];
+}
+
+// https://www.hackerrank.com/challenges/a-very-big-sum/problem?isFullScreen=true
+function aVeryBigSum(ar) {
+    let sum = ar.reduce((total, num) => total = total + num, 0);
+    return sum;
+}
+
+// https://www.hackerrank.com/challenges/plus-minus/problem?isFullScreen=true
+
+function plusMinus(arr) {
+    let categories = {positive: 0, negative: 0, zero: 0}
+    arr.forEach(function(item) { 
+        if(item > 0) {
+          categories.positive += 1;  
+        } else if (item < 0) {
+            categories.negative += 1;
+        } else categories.zero += 1;
+    });
+    let ratios = [];
+    let numberOfItems = arr.length;
+    Object.keys(categories).forEach(item => ratios.push(categories[item]/numberOfItems.toFixed(6)));
+    ratios.forEach(item => console.log(item));
+}
+
+// https://www.hackerrank.com/challenges/mini-max-sum/problem?isFullScreen=true
+function miniMaxSum(arr) {
+    let min = arr.sort((a,b) => a-b)[0];
+    let max = arr.sort((a,b) => b-a)[0];
+    let sum = arr.reduce((total,num) => total = total + num, 0);
+    console.log(`${sum - max} ${sum - min}`);
+}
